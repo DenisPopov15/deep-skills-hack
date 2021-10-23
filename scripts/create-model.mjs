@@ -44,10 +44,6 @@ const deepskillSchemaID = await manager.createSchema('DeepSkill', {
       type: 'string',
       title: 'taskname',
     },
-    attestor: {
-      type: 'string',
-      title: 'attestor'
-    },
     issuerDid: {
       type: 'string',
       title: 'issuerDid'
