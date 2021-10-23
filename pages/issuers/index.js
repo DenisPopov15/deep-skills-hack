@@ -36,12 +36,14 @@ export default function profile() {
         <div class='e2532_51302'></div>
         <div class='e2532_51303'>
             <div class='e2532_51304'>
-                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network: 0x6dc433c1ba62f54f8eec49d17844dad06d38eb71</span></div>
+                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network: 
+                    <a href="https://ropsten.etherscan.io/address/0x6dc433c1ba62f54f8eec49d17844dad06d38eb71#code"><strong>0x6dc433c1ba62f54f8eec49d17844dad06d38eb71</strong></a>
+                </span></div>
                 <div class='e2532_51308'>
                     <div class='e2532_51309'>
                         <div class='e2532_51443'>
                             <div class='e2532_51444'><span class='e2532_51446'>Taco DAO</span></div>
-                            <div class='e2532_51458'><span class='e2532_51459'>DID: 123</span></div>
+                            <div class='e2532_51458'><span class='e2532_51459'>DID:  did:3:kjzl6cwe1jw1497oabwxdz3jyrlmdi7p6l9r1a4vgfzcf6ygxls08h7ryjx1vjy</span></div>
                         </div>
                     </div>
                 </div>
