@@ -223,7 +223,7 @@ function MyApp() {
   }
 
   function renderProfile() {
-    return <Profile />
+    return <Profile ceramic={ceramic} ethereum={ethereum} />
   }
 
   function renderIssuers() {

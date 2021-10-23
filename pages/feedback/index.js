@@ -36,16 +36,23 @@ export default function feedback(props) {
           (async() => {
 
             const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
-            const uniqSuffix = Date.now()
 
             const holderDid = 'did:3:kjzl6cwe1jw149u7xahdzwu6nsuwnf8iygdv0b7sbfwr3hyospdcx5ila6pvwc0'
-            const skill = {
+            const skill1 = {
                 holderDid,
-                taskname: `Create Coockie - ${uniqSuffix}`,
+                taskname: 'Turn corn flour into dough',
                 description
             }
 
-            await deepSkillsService.issueAndStoreDocument(skill)
+            await deepSkillsService.issueAndStoreDocument(skill1)
+
+            const skill2 = {
+                holderDid,
+                taskname: 'Dice incredible amounts of onions',
+                description
+            }
+
+            await deepSkillsService.issueAndStoreDocument(skill2)
 
           })()
       }

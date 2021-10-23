@@ -1,13 +1,64 @@
-export default function profile() {
+import { useEffect, useState } from 'react'
+import { DeepSkillsService } from '../services/DeepSkillsService'
+
+export default function profile(props) {
+  const ceramic = props.ceramic
+  const ethereum = props.ethereum
+
+  const [skills, setSkills] = useState()
+
+  useEffect(() => {
+      if(ceramic) {
+          // setLoadingMessage('Loading your skills...');
+
+          (async() => {
+              const holderDid = 'did:3:kjzl6cwe1jw149u7xahdzwu6nsuwnf8iygdv0b7sbfwr3hyospdcx5ila6pvwc0'
+              const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
+              const issuedDocuments = await deepSkillsService.pullHolderDeepSkills(holderDid)
+
+              console.log('issuedDocuments!!!', issuedDocuments)
+              setSkills(issuedDocuments.reverse())
+
+              // setLoadingMessage('');
+          })();
+      }
+  }, [ceramic])
+
+
+  function displaySkill(allSkills) {
+    const skillRecords = []
+    for (const record of allSkills) {
+      const renderRecord = <div>
+        Task name: <span class='e2512_513600'>{record.taskname}</span><br />
+        Comments: : <span class='e2512_513600'>{record.description}</span><br />
+        Attested by: {record.issuerDid} <br />
+        Singature: <span class='e2512_513600'>{record.signature}</span><br />
+        <br /><br /><br />
+      </div>;
+
+      skillRecords.push(renderRecord)
+    }
+
+    return skillRecords
+  }
+
   return (
     <div class='e2504_57287'>
         <div class='e2504_57288'></div>
         <div class='e2504_57289'><span class='e2504_57290'>Skills</span>
             <div class='e2504_57291'>
                 <div class='e2529_75842'>
-                    <div class='e2529_75843'></div><span class='e2529_75846'>3/10</span><span class='e2529_75847'>Taco Chef</span></div>
+                    <div class='e2529_75843'></div>
+                    <span class='e2529_75846'>
+                      {
+                        (skills)  ?
+                        skills.length :
+                        <div>Loading...</div>
+                      }
+                    </span>
+                    <span class='e2529_75847'>Taco Chef</span></div>
                 <div class='e2528_75462'>
-                    <div class='e2528_75463'></div><span class='e2528_75466'>0/10</span><span class='e2528_75467'>Product Design</span></div>
+                    <div class='e2528_75463'></div><span class='e2528_75466'>0</span><span class='e2528_75467'>Product Design</span></div>
             </div>
         </div>
         <div class='e2504_57295'>
@@ -64,13 +115,12 @@ export default function profile() {
                 <div class='e2512_51361'><span class='ei2512_51361_311_6960'>Food Industry</span></div>
             </div>
             <div class='e2512_513588'><div class='e2512_513611'>Tasks Completed</div></div>
+
             <div class='newblock'>
-                Task name: <span class='e2512_513600'>TACO Mix!</span><br />
-                Comments: <br />
-                Data completed: 12-12-1990<br />
-                Attested by: DID <br />
-                Singature:  
-                <br /><br /><br />
+            { (skills && skills.length)  ?
+                displaySkill(skills) :
+                <h3>Loading...</h3>
+            }
             </div>
 
         </div>
