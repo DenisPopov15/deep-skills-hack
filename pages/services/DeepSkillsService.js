@@ -8,6 +8,7 @@ const DEEPSKILLS_ALIAS = 'deepskills'
 export class DeepSkillsService {
   constructor (ceramic, ethereum) {
     this._did = ceramic.did._id
+    console.log('YOUR DID:', this._did)
     const provider = new ethers.providers.Web3Provider(ethereum)
 
     this._ceramicService = new CeramicService(ceramic)
