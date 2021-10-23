@@ -9,11 +9,12 @@
 // import { model as basicProfileModel } from '@datamodels/identity-profile-basic'
 // import { model as cryptoAccountsModel } from '@datamodels/identity-accounts-crypto'
 // import { model as webAccountsModel } from '@datamodels/identity-accounts-web'
+// import { deepSkillsModel } from '../models/index'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from '../../styles/App.module.css'
 import { CeramicService } from '../services/CeramicService'
-import { deepSkillsModel } from '../models/index'
+import { DeepSkillsService } from '../services/DeepSkillsService'
 
 import { model as basicSkillsModel} from '@ben-razor/basic-skills'
 
@@ -24,7 +25,7 @@ function DataModels(props) {
     const [skills, setSkills] = useState();
     const [submitting, setSubmitting] = useState(false);
     const ceramic = props.ceramic;
-    const core = props.core;
+    const signer = props.signer;
     const setAppStarted = props.setAppStarted;
 
     const [skillName, setSkillName] = useState('');
@@ -45,6 +46,7 @@ function DataModels(props) {
 
             (async() => {
                 const ceramicService = new CeramicService(ceramic)
+                const deepSkillsService = new DeepSkillsService(ceramic)
                 const { model, publishedModel, dataStore: _dataStore } = await ceramicService.buildDataModelStore(basicSkillsModel)
 
                 setPublished(publishedModel)
@@ -53,17 +55,10 @@ function DataModels(props) {
                 setDataStore(_dataStore)
                 setSchemaURL(schemaURL)
 
-                const { publishedModel: notesPublishedModel, dataStore: dataStoreNotes } = await ceramicService.buildDataModelStore(deepSkillsModel)
-                const allNotes = await ceramicService.getStoreData(dataStoreNotes, 'notes')
-
-                const notes = allNotes?.notes || []
                 const uniqSuffix = Date.now()
+                await deepSkillsService.issueAndStoreDocument(signer, { text: `Some Text - ${uniqSuffix}` })
 
-                notes.push({ text: `Some Text - ${uniqSuffix}` })
-                await ceramicService.setStoreData(dataStoreNotes, { notes }, 'notes')
-
-                const issuerDid = 'did:3:kjzl6cwe1jw1497oabwxdz3jyrlmdi7p6l9r1a4vgfzcf6ygxls08h7ryjx1vjy'
-                const issuedDocuments = await ceramicService.pullStoreDataForDID(notesPublishedModel, issuerDid, 'notes')
+                const issuedDocuments = await deepSkillsService.pullHolderDeepSkills('holderDid')
 
                 console.log('issuedDocuments!!!', issuedDocuments)
 

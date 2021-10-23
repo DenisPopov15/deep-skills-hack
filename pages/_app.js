@@ -1,14 +1,15 @@
 import '../styles/globals.css'
 import styles from '../styles/App.module.css'
-import CeramicClient from '@ceramicnetwork/http-client';
-import { useEffect, useState, Fragment } from 'react';
-import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver';
+import CeramicClient from '@ceramicnetwork/http-client'
+import { useEffect, useState, Fragment } from 'react'
+import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 import { ThreeIdConnect,  EthereumAuthProvider } from '@3id/connect'
 import { TileDocument } from '@ceramicnetwork/stream-tile'
 import { DID } from 'dids'
-import DataModels from './components/DataModels';
-import Image from 'next/image';
-import { Core } from '@self.id/core';
+import DataModels from './components/DataModels'
+import Image from 'next/image'
+// import { Core } from '@self.id/core'
+import { ethers } from 'ethers'
 
 import { API_URL } from './config/index'
 
@@ -19,6 +20,7 @@ function MyApp() {
   const [streamId, setStreamId] = useState();
   const [ceramic, setCeramic] = useState();
   const [ethAddresses, setEthAddresses] = useState();
+  const [signer, setSigner] = useState();
   const [ethereum, setEthereum] = useState();
   const [commits, setCommits] = useState([]);
   const [appStarted, setAppStarted] = useState(false);
@@ -29,7 +31,10 @@ function MyApp() {
       (async() => {
         try {
           const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
-          setEthAddresses(addresses);
+          const provider = new ethers.providers.Web3Provider(window.ethereum)
+          const _signer = provider.getSigner()
+          setEthAddresses(addresses)
+          setSigner(_signer)
         }
         catch(e) {
           console.log(e);
@@ -106,7 +111,7 @@ function MyApp() {
       <h1>Ceramic is here</h1>
       {getTestDocUI(testDoc, streamId)}
       <div>
-        <DataModels ceramic={ceramic} />
+        <DataModels ceramic={ceramic} signer={signer} />
       </div>
     </div>;
   }
@@ -194,7 +199,7 @@ function MyApp() {
   }
 
   function getSkillsPage() {
-    return <DataModels ceramic={ceramic} setAppStarted={setAppStarted} />
+    return <DataModels ceramic={ceramic} signer={signer} setAppStarted={setAppStarted} />
   }
 
   return (

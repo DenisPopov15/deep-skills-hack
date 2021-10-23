@@ -12,17 +12,39 @@ export class DeepSkillsService {
   }
 
   async pullHolderDeepSkills(holderIdid) {
-    const issuedDocuments = []
+    let issuedDocuments = []
     const { publishedModel } = await this._ceramicService.buildDataModelStore(deepSkillsModel)
 
     const issuers = await this.pullIssuersDids()
     for (const issuerDid of issuers) {
-      const { notes } = await this._ceramicService.pullStoreDataForDID(publishedModel, issuerDid, DEEPSKILLS_ALIAS)
-      issuedDocuments = issuedDocuments.concat(notes)
+      const result = await this._ceramicService.pullStoreDataForDID(publishedModel, issuerDid, DEEPSKILLS_ALIAS)
+      const documents = result[DEEPSKILLS_ALIAS]
+      issuedDocuments = issuedDocuments.concat(documents)
     }
 
     // TODO: ADD Filter
     return issuedDocuments
+  }
+
+  async issueAndStoreDocument (signer, params) {
+    const { publishedModel, dataStore } = await this._ceramicService.buildDataModelStore(deepSkillsModel)
+    const allDocuments = await this._ceramicService.getStoreData(dataStore, DEEPSKILLS_ALIAS)
+
+    const documents = allDocuments[DEEPSKILLS_ALIAS] || []
+
+    const deepSkillDocument = params
+    const message = JSON.stringify(params)
+    const signature = await signer.signMessage(message)
+    console.log('signature!!!!', signature)
+
+    // deepSkillDocument.signature = 'SomeSignature'
+    // deepSkillDocument.issuerDid = 'SomeIssuerDid'
+
+    documents.push(deepSkillDocument)
+
+    const dataToStore = {}
+    dataToStore[DEEPSKILLS_ALIAS] = documents
+    await this._ceramicService.setStoreData(dataStore, dataToStore, DEEPSKILLS_ALIAS)
   }
 
 }
