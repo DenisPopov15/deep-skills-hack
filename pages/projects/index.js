@@ -26,9 +26,11 @@ export default function projects() {
                 </div>
             </div>
             <div class='ei2504_56780_863_19783'><span class='ei2504_56780_812_12160'><a href="/issuers">Organisations</a></span><span class='ei2504_56780_34_657'>Projects</span>
-                <div class='ei2504_56780_1295_30746'>
-                    <div class='ei2504_56780_1295_30746_1287_27648'></div>
-                </div>
+                <a href="/profile">
+                    <div class='ei2504_56780_1295_30746'>
+                        <div class='ei2504_56780_1295_30746_1287_27648'></div>
+                    </div>
+                </a>
             </div>
         </div>
         <div class='e2504_56781'>
