@@ -27,7 +27,7 @@ export default function feedback() {
                 <div class='ei2504_57126_34_655'></div>
             </div>
         </div>
-        <div class='ei2504_57126_863_19783'><span class='ei2504_57126_812_12160'>Organisations</span><span class='ei2504_57126_34_657'>Projects</span>
+        <div class='ei2504_57126_863_19783'><span class='ei2504_57126_812_12160'><a href="/issuers">Organisations</a></span><span class='ei2504_57126_34_657'>Projects</span>
             <div class='ei2504_57126_1295_30746'>
                 <div class='ei2504_57126_1295_30746_1287_27646'></div>
             </div>

@@ -60,44 +60,23 @@ export default function profile() {
                 </div>
                 <div class='e2512_51343'><span class='e2512_51344'>Taco DAO</span></div>
             </div>
-            <div class='e2512_51357'>
-                <div class='ei2512_51357_1320_25724'>
-                    <div class='ei2512_51357_1320_25724_1287_27650'></div>
-                </div>
-                <div class='ei2512_51357_1320_25725'>
-                    <div class='ei2512_51357_1320_25725_1287_27648'></div>
-                </div>
-                <div class='ei2512_51357_1320_25726'>
-                    <div class='ei2512_51357_1320_25726_1287_27646'></div>
-                </div>
-            </div>
             <div class='e2512_51358'><span class='e2512_51359'>TacoLisbon Event</span><span class='e2512_51360'>Aug 5 – Aug 13, 2021</span>
                 <div class='e2512_51361'><span class='ei2512_51361_311_6960'>Food Industry</span></div>
             </div>
+            <div class='e2512_513588'><div class='e2512_513611'>Tasks Completed</div></div>
+            <div class='newblock'>
+                Task name: <span class='e2512_513600'>TACO Mix!</span><br />
+                Comments: <br />
+                Data completed: 12-12-1990<br />
+                Attested by: DID <br />
+                Singature:  
+                <br /><br /><br />
+            </div>
+
         </div>
         <div class='e2504_57333'>
-                <div class='ei2504_57333_1422_29090'>
-                    <div class='ei2504_57333_1422_29091'>
-                        <div class='ei2504_57333_1422_29092'>
-                            <div class='ei2504_57333_1422_29093'></div>
-                            <div class='ei2504_57333_1422_29094'></div>
-                            <div class='ei2504_57333_1422_29095'></div>
-                            <div class='ei2504_57333_1422_29096'></div>
-                            <div class='ei2504_57333_1422_29097'></div>
-                            <div class='ei2504_57333_1422_29098'></div>
-                        </div>
-                        <div class='ei2504_57333_1422_29099'></div>
-                    </div>
-            <div class='ei2504_57333_1422_29100'>
-                <div class='ei2504_57333_1422_29101'></div>
-                <div class='ei2504_57333_1422_29102'></div>
-                <div class='ei2504_57333_1422_29103'></div>
-                <div class='ei2504_57333_1422_29104'></div>
-                <div class='ei2504_57333_1422_29105'></div>
-                <div class='ei2504_57333_1422_29106'></div>
-            </div>
-            </div>
-            <div class='ei2504_57333_1422_29107'><span class='ei2504_57333_1422_29108'>Organisations</span><span class='ei2504_57333_1422_29109'>Explore Projects</span>
+            <div class='ei2504_57333_1422_29090'></div>
+            <div class='ei2504_57333_1422_29107'><span class='ei2504_57333_1422_29108'><a href="/issuers">Organisations</a></span><span class='ei2504_57333_1422_29109'>Explore Projects</span>
                 <div class='ei2504_57333_1422_29110'>
                     <div class='ei2504_57333_1422_29110_1287_27650'></div>
                 </div>

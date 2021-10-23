@@ -3,6 +3,10 @@
 
 /* ------------------------- PROJECTS ------------------------- */
 
+a {
+	color: rgb(142, 142, 205);
+}
+
 .e2504_56778 {
   background-color:rgba(29.000000171363354, 30.00000011175871, 32.00000189244747, 1);
   width:1400px;
@@ -3554,16 +3558,15 @@
 	letter-spacing:0;
 }
 .e2512_51308 { 
-	width:290px;
-	height:239px;
+	width:590px;
 	position:absolute;
 	left:555px;
 	top:240px;
 }
 .e2512_51309 { 
 	background-color:rgba(53.00000064074993, 54.00000058114529, 58.00000034272671, 1);
-	width:290px;
-	height:239px;
+	width:590px;
+
 	position:absolute;
 	left:0px;
 	top:0px;
@@ -3574,7 +3577,7 @@
 }
 .e2512_51311 { 
 	background-color:rgba(44.000001177191734, 45.00000111758709, 48.000000938773155, 1);
-	width:290px;
+	width:590px;
 	height:1px;
 	position:absolute;
 	left:0px;
@@ -3711,6 +3714,20 @@
 	left:25px;
 	top:76px;
 }
+.e2512_513588 { 
+	width:147px;
+	height:83px;
+	position:absolute;
+	left:25px;
+	top:160px;
+}
+.newblock {
+	position: absolute;
+	top:230px;
+	left:25px;
+	color: white;
+	font-family: Circular Std;
+}
 .e2512_51359 { 
 	color:rgba(255, 255, 255, 1);
 	width:120px;
@@ -3730,6 +3747,23 @@
 	position:absolute;
 	left:0px;
 	top:33px;
+	font-family:Circular Std;
+	text-align:left;
+	font-size:16px;
+	letter-spacing:0;
+}
+.e2512_513611 { 
+	color:rgba(201.02190524339676, 201.02190524339676, 204.00000303983688, 1);
+	font-family:Circular Std;
+	top:33px;
+	width:197px;
+	position:absolute;
+	text-align:left;
+	font-size:20px;
+	letter-spacing:0;
+}
+.e2512_513600 { 
+	color:rgba(201.02190524339676, 201.02190524339676, 204.00000303983688, 1);
 	font-family:Circular Std;
 	text-align:left;
 	font-size:16px;

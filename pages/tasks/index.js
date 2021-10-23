@@ -30,7 +30,7 @@ export default function tasks() {
                 </div>
             </div>
             <div class='ei2512_51560_863_19783'>
-                <span class='ei2512_51560_812_12160'>Organisations</span>
+                <span class='ei2512_51560_812_12160'><a href="/issuers">Organisations</a></span>
                 <span class='ei2512_51560_34_657'>Projects</span>
                 <div class='ei2512_51560_1295_30746'>
                     <div class='ei2512_51560_1295_30746_1287_27646'></div>

@@ -27,7 +27,7 @@ export default function profile() {
                     <div class='ei2532_51301_34_655'></div>
                 </div>
             </div>
-            <div class='ei2532_51301_863_19783'><span class='ei2532_51301_812_12160'>Organisations</span><span class='ei2532_51301_34_657'>Projects</span>
+            <div class='ei2532_51301_863_19783'><span class='ei2532_51301_812_12160'><a href="/issuers">Organisations</a></span><span class='ei2532_51301_34_657'>Projects</span>
                 <div class='ei2532_51301_1295_30746'>
                     <div class='ei2532_51301_1295_30746_1287_27646'></div>
                 </div>
@@ -36,7 +36,7 @@ export default function profile() {
         <div class='e2532_51302'></div>
         <div class='e2532_51303'>
             <div class='e2532_51304'>
-                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network: 
+                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network:&nbsp; 
                     <a href="https://ropsten.etherscan.io/address/0x6dc433c1ba62f54f8eec49d17844dad06d38eb71#code"><strong>0x6dc433c1ba62f54f8eec49d17844dad06d38eb71</strong></a>
                 </span></div>
                 <div class='e2532_51308'>
