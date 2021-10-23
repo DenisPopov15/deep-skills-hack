@@ -24,6 +24,7 @@ function MyApp() {
   const [updatedDoc, setUpdatedDoc] = useState();
   const [streamId, setStreamId] = useState();
   const [ceramic, setCeramic] = useState();
+  const [urlPath, setUrlPath] = useState();
   const [ethAddresses, setEthAddresses] = useState();
   const [ethereum, setEthereum] = useState();
   const [commits, setCommits] = useState([]);
@@ -47,7 +48,13 @@ function MyApp() {
   useEffect(() => {
     if(ethereum && ethAddresses) {
       (async () => {
-        const newCeramic = new CeramicClient(API_URL);
+
+        const fullPath = window.location.href
+        const parts = fullPath.split('/')
+        const path = parts[3]
+        setUrlPath(path)
+
+        const newCeramic = new CeramicClient(API_URL)
 
         const resolver = {
           ...ThreeIdResolver.getResolver(newCeramic),
@@ -223,17 +230,52 @@ function MyApp() {
     return <Issuers />
   }
 
-  return (
-    <div>
-      {
-        // (ceramic) ?
-        // renderProjects()
-        renderIssuers()
-
-      }
-    </div>
-
-  );
+  switch (urlPath) {
+    case 'feadback':
+      return (
+        <div>
+          {
+            renderFeedback()
+          }
+        </div>
+        )
+      break
+    case 'profile':
+      return (
+        <div>
+          {
+            renderProfile()
+          }
+        </div>
+        )
+      break
+    case 'issuers':
+      return (
+        <div>
+          {
+            renderIssuers()
+          }
+        </div>
+        )
+      break
+    case 'tasks':
+      return (
+        <div>
+          {
+            renderTasks()
+          }
+        </div>
+        )
+      break
+    default:
+      return (
+        <div>
+          {
+            renderProjects()
+          }
+        </div>
+        )
+  }
 }
 
 export default MyApp;

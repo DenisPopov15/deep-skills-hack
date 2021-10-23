@@ -38,18 +38,22 @@ export default function projects() {
                     <div class='e2512_51261'>
                         <div class='e2512_51262'></div>
 
-                        
+
                             <div class='e2512_51285'>
                                 <div class='e2512_51289'>
                                     <div class='e2512_51290'></div>
                                     <div class='e2512_51291'></div>
-                                </div><span class='e2512_51287'>Taco DAO</span></div>
+                                  </div>
+                                  <a href='/tasks'>
+                                    <span class='e2512_51287'>Taco DAO</span>
+                                  </a>
+                                  </div>
                             <div class='e2512_51264'>
                                 <div class='ei2512_51264_394_12198'>
                                     <div class='ei2512_51264_394_12195'>
                                         <div class='ei2512_51264_394_12195_394_12164'></div>
                                     </div>
-                        
+
 
                         <div class='ei2512_51264_394_12192'>
                             <div class='ei2512_51264_394_12192_394_12162'></div>
