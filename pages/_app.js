@@ -9,7 +9,6 @@ import { DID } from 'dids'
 import DataModels from './components/DataModels'
 import Image from 'next/image'
 // import { Core } from '@self.id/core'
-import { ethers } from 'ethers'
 
 import { API_URL } from './config/index'
 
@@ -20,7 +19,6 @@ function MyApp() {
   const [streamId, setStreamId] = useState();
   const [ceramic, setCeramic] = useState();
   const [ethAddresses, setEthAddresses] = useState();
-  const [signer, setSigner] = useState();
   const [ethereum, setEthereum] = useState();
   const [commits, setCommits] = useState([]);
   const [appStarted, setAppStarted] = useState(false);
@@ -31,10 +29,7 @@ function MyApp() {
       (async() => {
         try {
           const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
-          const provider = new ethers.providers.Web3Provider(window.ethereum)
-          const _signer = provider.getSigner()
           setEthAddresses(addresses)
-          setSigner(_signer)
         }
         catch(e) {
           console.log(e);
@@ -111,7 +106,7 @@ function MyApp() {
       <h1>Ceramic is here</h1>
       {getTestDocUI(testDoc, streamId)}
       <div>
-        <DataModels ceramic={ceramic} signer={signer} />
+        <DataModels ceramic={ceramic} ethereum={ethereum} />
       </div>
     </div>;
   }
@@ -199,7 +194,7 @@ function MyApp() {
   }
 
   function getSkillsPage() {
-    return <DataModels ceramic={ceramic} signer={signer} setAppStarted={setAppStarted} />
+    return <DataModels ceramic={ceramic} ethereum={ethereum} setAppStarted={setAppStarted} />
   }
 
   return (

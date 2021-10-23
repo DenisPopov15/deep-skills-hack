@@ -25,7 +25,7 @@ function DataModels(props) {
     const [skills, setSkills] = useState();
     const [submitting, setSubmitting] = useState(false);
     const ceramic = props.ceramic;
-    const signer = props.signer;
+    const ethereum = props.ethereum;
     const setAppStarted = props.setAppStarted;
 
     const [skillName, setSkillName] = useState('');
@@ -46,7 +46,7 @@ function DataModels(props) {
 
             (async() => {
                 const ceramicService = new CeramicService(ceramic)
-                const deepSkillsService = new DeepSkillsService(ceramic)
+                const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
                 const { model, publishedModel, dataStore: _dataStore } = await ceramicService.buildDataModelStore(basicSkillsModel)
 
                 setPublished(publishedModel)
@@ -56,7 +56,7 @@ function DataModels(props) {
                 setSchemaURL(schemaURL)
 
                 const uniqSuffix = Date.now()
-                await deepSkillsService.issueAndStoreDocument(signer, { text: `Some Text - ${uniqSuffix}` })
+                await deepSkillsService.issueAndStoreDocument({ text: `Some Text - ${uniqSuffix}` })
 
                 const issuedDocuments = await deepSkillsService.pullHolderDeepSkills('holderDid')
 

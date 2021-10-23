@@ -1,14 +1,34 @@
+import { ethers } from 'ethers'
 import { CeramicService } from './CeramicService'
 import { deepSkillsModel } from '../models/index'
+import { DeepSkillsContractService } from './DeepSkillsContractService'
+
 const DEEPSKILLS_ALIAS = 'notes'
 
 export class DeepSkillsService {
-  constructor (ceramic) {
+  constructor (ceramic, ethereum) {
+    const provider = new ethers.providers.Web3Provider(ethereum)
+
     this._ceramicService = new CeramicService(ceramic)
+    this._deepSkillsContractService = new DeepSkillsContractService(ethereum)
+    this._signer = provider.getSigner()
   }
 
   async pullIssuersDids () {
-    return ['did:3:kjzl6cwe1jw1497oabwxdz3jyrlmdi7p6l9r1a4vgfzcf6ygxls08h7ryjx1vjy']
+    const issuerDids = []
+    const lastIssuerIndex = await this._deepSkillsContractService.pullLastIssuerIndex()
+
+    let index = 0
+    if (lastIssuerIndex > 0) {
+      while (index < lastIssuerIndex) {
+        const issuer = await this._deepSkillsContractService.pullIssuerByIndex(index)
+        console.log('issuer!!!', issuer)
+        index++
+        issuerDids.push(issuer)
+      }
+
+    }
+    return issuerDids
   }
 
   async pullHolderDeepSkills(holderIdid) {
@@ -26,7 +46,7 @@ export class DeepSkillsService {
     return issuedDocuments
   }
 
-  async issueAndStoreDocument (signer, params) {
+  async issueAndStoreDocument (params) {
     const { publishedModel, dataStore } = await this._ceramicService.buildDataModelStore(deepSkillsModel)
     const allDocuments = await this._ceramicService.getStoreData(dataStore, DEEPSKILLS_ALIAS)
 
@@ -34,8 +54,7 @@ export class DeepSkillsService {
 
     const deepSkillDocument = params
     const message = JSON.stringify(params)
-    const signature = await signer.signMessage(message)
-    console.log('signature!!!!', signature)
+    const signature = await this._signer.signMessage(message)
 
     // deepSkillDocument.signature = 'SomeSignature'
     // deepSkillDocument.issuerDid = 'SomeIssuerDid'
