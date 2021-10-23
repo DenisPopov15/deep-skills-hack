@@ -17,7 +17,6 @@ export default function feedback(props) {
   }
 
   const handleChangeBad = e => {
-    const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
     localStorage.setItem('didBad', e.target.value)
     setDidBad(e.target.value)
   }
