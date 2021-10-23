@@ -11,6 +11,9 @@ import DataModels from './components/DataModels'
 import Image from 'next/image'
 import Projects from './projects/index'
 import Tasks from './tasks/index'
+import Feedback from './feedback/index'
+import Profile from './profile/index'
+import Issuers from './issuers/index'
 // import { Core } from '@self.id/core'
 
 import { API_URL } from './config/index'
@@ -208,12 +211,24 @@ function MyApp() {
     return <Tasks />
   }
 
+  function renderFeedback() {
+    return <Feedback />
+  }
+
+  function renderProfile() {
+    return <Profile />
+  }
+
+  function renderIssuers() {
+    return <Issuers />
+  }
+
   return (
     <div>
       {
         // (ceramic) ?
         // renderProjects()
-        renderTasks()
+        renderIssuers()
 
       }
     </div>
