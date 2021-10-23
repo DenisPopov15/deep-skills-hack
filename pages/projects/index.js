@@ -38,22 +38,18 @@ export default function projects() {
                     <div class='e2512_51261'>
                         <div class='e2512_51262'></div>
 
-                        <a href='#TEST#'>
+                        
                             <div class='e2512_51285'>
                                 <div class='e2512_51289'>
                                     <div class='e2512_51290'></div>
                                     <div class='e2512_51291'></div>
-                                </div>
-                                <span class='e2512_51287'>Taco DAO</span>
-                              </div>
+                                </div><span class='e2512_51287'>Taco DAO</span></div>
                             <div class='e2512_51264'>
                                 <div class='ei2512_51264_394_12198'>
                                     <div class='ei2512_51264_394_12195'>
                                         <div class='ei2512_51264_394_12195_394_12164'></div>
                                     </div>
-                                  </div>
-                                </div>
-                        </a>
+                        
 
                         <div class='ei2512_51264_394_12192'>
                             <div class='ei2512_51264_394_12192_394_12162'></div>
@@ -63,12 +59,8 @@ export default function projects() {
                         </div>
                         </div><span class='ei2512_51264_394_12178'>+ two others</span></div>
                         <div class='e2512_51265'></div>
-                        <div class='e2512_51266'>
-                          <span class='e2512_51267'>TacoLisbon Event</span>
-                          <span class='e2512_51268'>Aug 5 – Aug 13, 2021</span>
-                            <div class='e2512_51269'>
-                              <span class='ei2512_51269_311_6960'>Food Industry</span>
-                            </div>
+                        <div class='e2512_51266'><span class='e2512_51267'>TacoLisbon Event</span><span class='e2512_51268'>Aug 5 – Aug 13, 2021</span>
+                            <div class='e2512_51269'><span class='ei2512_51269_311_6960'>Food Industry</span></div>
                         </div>
                     </div>
                     <div class='e2504_56786'>
@@ -140,5 +132,7 @@ export default function projects() {
                     <div class='ei2504_56788_1295_28916'><span class='ei2504_56788_1295_28321'></span></div>
                 </div>
             </div>
+        </div>
+    </div>
   )
 }
