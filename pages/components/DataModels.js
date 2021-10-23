@@ -56,9 +56,15 @@ function DataModels(props) {
                 setSchemaURL(schemaURL)
 
                 const uniqSuffix = Date.now()
-                await deepSkillsService.issueAndStoreDocument({ text: `Some Text - ${uniqSuffix}` })
+                const holderDid = 'did:3:kjzl6cwe1jw149u7xahdzwu6nsuwnf8iygdv0b7sbfwr3hyospdcx5ila6pvwc0'
+                const skill = {
+                    holderDid,
+                    taskname: `Create Coockie - ${uniqSuffix}`,
+                    description: 'Backe best coockies'
+                }
+                await deepSkillsService.issueAndStoreDocument(skill)
 
-                const issuedDocuments = await deepSkillsService.pullHolderDeepSkills('holderDid')
+                const issuedDocuments = await deepSkillsService.pullHolderDeepSkills(holderDid)
 
                 console.log('issuedDocuments!!!', issuedDocuments)
 

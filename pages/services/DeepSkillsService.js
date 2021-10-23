@@ -3,10 +3,11 @@ import { CeramicService } from './CeramicService'
 import { deepSkillsModel } from '../models/index'
 import { DeepSkillsContractService } from './DeepSkillsContractService'
 
-const DEEPSKILLS_ALIAS = 'notes'
+const DEEPSKILLS_ALIAS = 'deepskills'
 
 export class DeepSkillsService {
   constructor (ceramic, ethereum) {
+    this._did = ceramic.did._id
     const provider = new ethers.providers.Web3Provider(ethereum)
 
     this._ceramicService = new CeramicService(ceramic)
@@ -48,22 +49,23 @@ export class DeepSkillsService {
 
   async issueAndStoreDocument (params) {
     const { publishedModel, dataStore } = await this._ceramicService.buildDataModelStore(deepSkillsModel)
-    const allDocuments = await this._ceramicService.getStoreData(dataStore, DEEPSKILLS_ALIAS)
+    const allDocuments = await this._ceramicService.getStoreData(dataStore, DEEPSKILLS_ALIAS) || {}
 
     const documents = allDocuments[DEEPSKILLS_ALIAS] || []
 
     const deepSkillDocument = params
-    const message = JSON.stringify(params)
-    const signature = await this._signer.signMessage(message)
+    deepSkillDocument.issuerDid = this._did
 
-    // deepSkillDocument.signature = 'SomeSignature'
-    // deepSkillDocument.issuerDid = 'SomeIssuerDid'
+    const signature = await this._signer.signMessage(JSON.stringify(deepSkillDocument))
+    deepSkillDocument.signature = signature
 
     documents.push(deepSkillDocument)
 
     const dataToStore = {}
     dataToStore[DEEPSKILLS_ALIAS] = documents
+    console.log('BEFORE STORE!!!', dataToStore)
     await this._ceramicService.setStoreData(dataStore, dataToStore, DEEPSKILLS_ALIAS)
+    console.log('AFTER STORE!!!')
   }
 
 }
