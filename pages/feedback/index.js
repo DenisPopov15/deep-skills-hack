@@ -1,4 +1,58 @@
-export default function feedback() {
+import React, { useState } from 'react'
+import { DeepSkillsService } from '../services/DeepSkillsService'
+
+export default function feedback(props) {
+  const ceramic = props.ceramic
+  const ethereum = props.ethereum
+
+  const localDidWell = localStorage.getItem('didWell')
+  const [didWell, setDidWell] = useState(localDidWell)
+
+  const localDidBad = localStorage.getItem('didBad')
+  const [didBad, setDidBad] = useState(localDidBad)
+
+  const handleChangeWell = e => {
+    localStorage.setItem('didWell', e.target.value)
+    setDidWell(e.target.value)
+  }
+
+  const handleChangeBad = e => {
+    localStorage.setItem('didBad', e.target.value)
+    setDidBad(e.target.value)
+  }
+
+  function issueFeadback(e) {
+      // setLoadingMessage('Updating skills...')
+      // let t = setTimeout(() => {
+      //     setLoadingMessage('')
+      // }, 5000);
+
+      const didWell = localStorage.getItem('didWell')
+      const didBad = localStorage.getItem('didBad')
+
+      const description = `${didWell};${didBad}`
+
+      if(ceramic && ethereum) {
+          (async() => {
+
+            const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
+            const uniqSuffix = Date.now()
+
+            const holderDid = 'did:3:kjzl6cwe1jw149u7xahdzwu6nsuwnf8iygdv0b7sbfwr3hyospdcx5ila6pvwc0'
+            const skill = {
+                holderDid,
+                taskname: `Create Coockie - ${uniqSuffix}`,
+                description
+            }
+
+            await deepSkillsService.issueAndStoreDocument(skill)
+
+          })()
+      }
+
+      // e.preventDefault();
+  }
+
   return (
     <div class='e2504_57122'>
     <div class='e2504_57123'></div>
@@ -42,7 +96,12 @@ export default function feedback() {
                 <div class='ei2504_57133_2170_82171'>
                     <div class='ei2504_57133_2170_82171_352_7945'></div>
 
-                    <textarea class='ei2504_57133_2170_82171_352_7946'>They worked flawlessly on…</textarea>
+                    <textarea
+                      class='ei2504_57133_2170_82171_352_7946'
+                      value={didWell}
+                      onChange={handleChangeWell}
+                      placeholder="They worked flawlessly on…"
+                    ></textarea>
 
                 </div>
             </div>
@@ -53,7 +112,12 @@ export default function feedback() {
                 <div class='ei2504_57134_2170_82171'>
                     <div class='ei2504_57134_2170_82171_352_7945'></div>
 
-                    <textarea class='ei2504_57133_2170_82171_352_7946'>They could’ve put more efforts on…</textarea>
+                    <textarea
+                      class='ei2504_57133_2170_82171_352_7946'
+                        value={didBad}
+                        onChange={handleChangeBad}
+                        placeholder="They could’ve put more efforts on…"
+                      ></textarea>
 
                 </div>
             </div>
@@ -107,7 +171,14 @@ export default function feedback() {
             </div>
         </div>
 
-        <div class='e2504_57144'><button type='button' class='ei2504_57144_50_1522'>Confirm</button></div>
+        <div class='e2504_57144'>
+          <button type='button'
+            class='ei2504_57144_50_1522'
+            onClick={issueFeadback}
+            >
+              Confirm
+            </button>
+        </div>
     </div>
 </div>
   )

@@ -219,7 +219,7 @@ function MyApp() {
   }
 
   function renderFeedback() {
-    return <Feedback />
+    return <Feedback ceramic={ceramic} ethereum={ethereum} />
   }
 
   function renderProfile() {
