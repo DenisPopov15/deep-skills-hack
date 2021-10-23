@@ -1,4 +1,4 @@
-.csnApp {
+/*.csnApp {
     max-width: 1000px;
     padding: 0.5em;
     margin: auto;
@@ -209,7 +209,7 @@
 .csnSkillRecordRight {
     display: flex;
     flex-direction: column;
-    flex: 1;    
+    flex: 1;
     padding: 0.5em;
 }
 
@@ -279,4 +279,4 @@
 .csnSkillsEntryTabActive {
     background-color: hsl(40deg, 80%, 50%);
     color: white;
-}
+}*/
