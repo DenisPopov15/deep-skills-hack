@@ -91,7 +91,7 @@ function MyApp() {
   }
 
   switch (urlPath) {
-    case 'feadback':
+    case 'feedback':
       return (
         <div>
           {
