@@ -5,7 +5,7 @@ import { DID } from 'dids'
 import { Ed25519Provider } from 'key-did-provider-ed25519'
 import { getResolver } from 'key-did-resolver'
 import { fromString } from 'uint8arrays'
-
+``
 import { SEED } from '../config/index.mjs'
 
 if (!SEED) {
@@ -29,9 +29,9 @@ ceramic.did = did
 const manager = new ModelManager(ceramic)
 
 // Create the schemas
-const noteSchemaID = await manager.createSchema('Note', {
+const deepskillSchemaID = await manager.createSchema('DeepSkill', {
   $schema: 'http://json-schema.org/draft-07/schema#',
-  title: 'Note',
+  title: 'Deep Skill',
   type: 'object',
   properties: {
     date: {
@@ -40,27 +40,47 @@ const noteSchemaID = await manager.createSchema('Note', {
       title: 'date',
       maxLength: 30,
     },
-    text: {
+    taskname: {
       type: 'string',
-      title: 'text',
+      title: 'taskname',
+    },
+    attestor: {
+      type: 'string',
+      title: 'attestor'
+    },
+    issuerDid: {
+      type: 'string',
+      title: 'issuerDid'
+    },
+    holderDid: {
+      type: 'string',
+      title: 'holderDid'
+    },
+    signature: {
+      type: 'string',
+      title: 'signature'
+    },
+    description: {
+      type: 'string',
+      title: 'description',
       maxLength: 4000,
     },
   },
 })
-const notesSchemaID = await manager.createSchema('Notes', {
+const deepskillsSchemaID = await manager.createSchema('DeepSkills', {
   $schema: 'http://json-schema.org/draft-07/schema#',
-  title: 'NotesList',
+  title: 'DeepSkillsList',
   type: 'object',
   properties: {
-    notes: {
+    deepskills: {
       type: 'array',
-      title: 'notes',
+      title: 'deepskills',
       items: {
         type: 'object',
-        title: 'NoteItem',
+        title: 'DeepSkillItem',
         properties: {
           id: {
-            $comment: `cip88:ref:${manager.getSchemaURL(noteSchemaID)}`,
+            $comment: `cip88:ref:${manager.getSchemaURL(deepskillSchemaID)}`,
             type: 'string',
             pattern: '^ceramic://.+(\\?version=.+)?',
             maxLength: 150,
@@ -77,17 +97,16 @@ const notesSchemaID = await manager.createSchema('Notes', {
 })
 
 // Create the definition using the created schema ID
-await manager.createDefinition('notes', {
-  name: 'notes',
-  description: 'Simple text notes',
-  schema: manager.getSchemaURL(notesSchemaID),
+await manager.createDefinition('deepskills', {
+  name: 'deepskills',
+  description: 'Skill credentials',
+  schema: manager.getSchemaURL(deepskillsSchemaID),
 })
 
-// Create a Note with text that will be used as placeholder
 await manager.createTile(
-  'placeholderNote',
-  { text: 'This is a placeholder for the note contents...' },
-  { schema: manager.getSchemaURL(noteSchemaID) },
+  'placeholderSkill',
+  { text: 'This is a placeholder for the skill contents...' },
+  { schema: manager.getSchemaURL(deepskillSchemaID) },
 )
 
 // Write model to JSON file
