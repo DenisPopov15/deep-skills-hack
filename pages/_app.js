@@ -10,6 +10,7 @@ import { DID } from 'dids'
 import DataModels from './components/DataModels'
 import Image from 'next/image'
 import Projects from './projects/index'
+import Tasks from './tasks/index'
 // import { Core } from '@self.id/core'
 
 import { API_URL } from './config/index'
@@ -203,11 +204,16 @@ function MyApp() {
     return <Projects />
   }
 
+  function renderTasks() {
+    return <Tasks />
+  }
+
   return (
     <div>
       {
         // (ceramic) ?
-        renderProjects()
+        // renderProjects()
+        renderTasks()
 
       }
     </div>
