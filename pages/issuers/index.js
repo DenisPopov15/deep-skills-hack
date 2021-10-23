@@ -36,7 +36,7 @@ export default function profile() {
         <div class='e2532_51302'></div>
         <div class='e2532_51303'>
             <div class='e2532_51304'>
-                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network:&nbsp; 
+                <div class='e2532_51305'><span class='e2532_51306'>List of DAOs using Deep Skills Protocol</span><span class='e2532_51307'>Registry is available on Rospten network:&nbsp;
                     <a href="https://ropsten.etherscan.io/address/0x6dc433c1ba62f54f8eec49d17844dad06d38eb71#code"><strong>0x6dc433c1ba62f54f8eec49d17844dad06d38eb71</strong></a>
                 </span></div>
                 <div class='e2532_51308'>
