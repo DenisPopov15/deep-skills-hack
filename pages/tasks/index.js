@@ -160,9 +160,10 @@ export default function tasks() {
                 </div>
             </div>
             <div class='e2512_51572'>
-
-
-                <button type='button' class='ei2512_51572_50_1522'>Submit application</button></div>
+                <a href="/">
+                    <button type='button' class='ei2512_51572_50_1522'>Submit application</button>
+                </a>
+            </div>
         </div>
     </div>
   )
