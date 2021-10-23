@@ -16,7 +16,6 @@ export default function profile(props) {
               const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
               const issuedDocuments = await deepSkillsService.pullHolderDeepSkills(holderDid)
 
-              console.log('issuedDocuments!!!', issuedDocuments)
               setSkills(issuedDocuments.reverse())
 
               // setLoadingMessage('');
@@ -117,7 +116,7 @@ export default function profile(props) {
             <div class='e2512_513588'><div class='e2512_513611'>Tasks Completed</div></div>
 
             <div class='newblock'>
-            { (skills && skills.length)  ?
+            { (skills)  ?
                 displaySkill(skills) :
                 <h3>Loading...</h3>
             }
