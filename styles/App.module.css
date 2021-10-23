@@ -1,0 +1,282 @@
+.csnApp {
+    max-width: 1000px;
+    padding: 0.5em;
+    margin: auto;
+}
+
+.streamTestPanel {
+    border-bottom: 1px solid hsl(0, 0%, 50%);
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.csnTopBar {
+    display: flex;
+    padding: 0.5em;
+}
+
+.csnLogoPanel {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-family: TitleText, sans-serif;
+    font-size: 1.1em;
+}
+
+.csnLogoPanelTopHeading {
+    margin: 0.25em;
+    padding: 0.5em;
+    width: 35%;
+    text-align: right;
+}
+
+.csnLogoPanelBottomHeading {
+    margin: 0.5em;
+    font-size: 1.5em;
+    padding: 0.5em ;
+    width: 35%;
+    text-align: left;
+}
+
+.csnLogoPanelImage {
+    transform: translateX(5%);
+    width: 30%;
+}
+
+.csnMainBar {
+    display: flex;
+}
+
+.csnMainPanel {
+    padding: 1em;
+}
+
+.csnMainPanelContainer {
+    width: 86%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.csnMainProblemPanel {
+    width: 37%;
+}
+
+.csnMainCenterPanel {
+    width: 26%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.csnMainSolutionPanel {
+    width: 37%;
+}
+
+.csnMainProblemTitle {
+    text-align: center;
+    font-family: TitleText, sans-serif;
+    font-size: 1.4em;
+}
+
+.csnMainSolutionTitle {
+    text-align: center;
+    font-family: TitleText, sans-serif;
+    font-size: 1.4em;
+}
+
+.csnButtonLikeLink {
+    margin-top: 0.25em;
+    font-size: 1.5em;
+    border: 2px solid orangered;
+    display: inline-block;
+    text-align: center;
+    border-radius: 0.5em;
+    color: orangered;
+}
+
+.csnMainList {
+    padding: none;
+    margin: none;
+    font-family: FancyWriting, sans-serif;
+    list-style-type: circle;
+}
+
+.csnMainList li {
+    margin: 0;
+}
+
+.csnFeaturesBar {
+    display: flex;
+}
+
+.csnFeatures {
+    margin: auto;
+    text-align: center;
+    font-family: FancyWriting, sans-serif;
+    font-size: 1.6em;
+}
+
+.csnMainSolutionMagic {
+    width: 100%;
+}
+
+.csnLandingPage {
+
+}
+
+.csnSkillsPage {
+
+}
+
+.csnSkillsPageHeadingRow {
+
+}
+
+.csnSkillsPageMainRow {
+    display: flex;
+    position: relative;
+    border-radius: 1em;
+}
+
+.csnSkillsFormContainer {
+    width: 30%;
+    border: 1px solid orange;
+    border-radius: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.csnSkillsContainer {
+    width: 70%;
+    border: 1px solid orange;
+    border-radius: 1em;
+    margin: 0.5em;
+    padding: 0.5em;
+    word-break: break-all;
+}
+
+.csnSkillsFormContainerHeading {
+
+}
+
+.csnSkillsFormContainerContent {
+}
+
+.csnSkillsContainerHeading {
+
+}
+
+.csnSkillsContainerContent {
+
+}
+
+.csnFormRow {
+    padding: 0.5em 0;
+}
+
+.csnFormLabel {
+
+}
+
+.csnFormInput {
+
+}
+
+.strikeout {
+    text-decoration: line-through;
+}
+
+.csnSkillRecord {
+    display: flex;
+    width: 95%;
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 2px solid grey;
+    border-radius: 1em;
+}
+
+.csnSkillRecordLeft {
+
+}
+
+.csnSkillRecordRight {
+    display: flex;
+    flex-direction: column;
+    flex: 1;    
+    padding: 0.5em;
+}
+
+.csnSkillName {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: hsl(40deg, 80%, 50%);
+    width: 100%;
+    padding: 0.25em;
+    color: white;
+}
+
+.csnSkillDesc {
+    padding: 0.25em;
+}
+
+.csnSkillImage {
+    padding: 0.25em;
+}
+
+.csnOverlay {
+    display: flex;
+    background-color: hsla(0deg, 0%, 90%, 0.9);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1em;
+    text-align: center;
+}
+
+.csnOverlayContent {
+    width: 30%;
+    margin: 5em auto;
+}
+
+.csnOverlayTextUpper {
+    font-size: 1.2em;
+}
+
+.csnOverlayTextUpper {
+
+}
+
+.csnVerfiedSkillEntry {
+    width: 100%;
+}
+
+.csnSkillsEntryTabs {
+    display: flex;
+    border-bottom: 2px solid black;
+}
+
+.csnSkillsEntryTab {
+    padding: 0.5em 1em;
+    border-width: 2px 2px 0 2px;
+    border-style: solid;
+    border-color: black;
+    margin-right: 0.25em;
+    background-color: grey;
+    color: black;
+    border-radius: 0.5em 0.5em 0 0;
+    font-weight: bold;
+}
+
+.csnSkillsEntryTabActive {
+    background-color: hsl(40deg, 80%, 50%);
+    color: white;
+}

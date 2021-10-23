@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "TitleText";
+  src: url("/fonts/Outage_Personal_License/Outage.ttf");
+}
+@font-face {
+  font-family: "FancyWriting";
+  src: url("/fonts/Kalam-Regular.ttf");
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input[type=submit] {
+  background-color: white;
+  padding: 0.3em 1.6em;
+  font-size: 1.2em;
+  border-radius: 1em;
+}
+
+input {
+  font-size: 1.2em;
+}
+
+input[type=text], textarea {
+  width: 100%;
+}
