@@ -1,4 +1,41 @@
-export default function profile() {
+import { useEffect, useState } from 'react'
+import { DeepSkillsService } from '../services/DeepSkillsService'
+
+export default function issuers(props) {
+  const ceramic = props.ceramic
+  const ethereum = props.ethereum
+
+  const [issuers, setIssuers] = useState()
+
+  useEffect(() => {
+      if(ceramic) {
+          (async() => {
+              const deepSkillsService = new DeepSkillsService(ceramic, ethereum)
+              const issuers = await deepSkillsService.pullIssuersDids()
+
+              setIssuers(issuers)
+          })();
+      }
+  }, [ceramic])
+
+  function renderIssuers (issuers) {
+    const issuerRecords = []
+    // const issuers = [
+    //   'did:3:kjzl6cwe1jw1497oabwxdz3jyrlmdi7p6l9r1a4vgfzcf6ygxls08h7ryjx1vjy',
+    //   'did:3:kjzl6cwe1jw146bdx9ijakbmlg0mu5k6q673uhvrx5czy81mfj2wdxeqj3l8i7a'
+    // ]
+
+    let i = 0
+    for (const issuer of issuers) {
+      const inlineStyle = { top: `${i}px` }
+      const issuerRecord = <span class='e2532_51459' style={inlineStyle}>DID:  {issuer}</span>
+      i = i + 70
+      issuerRecords.push(issuerRecord)
+    }
+
+    return issuerRecords
+  }
+
   return (
     <div class='e2532_51298'>
         <div class='e2532_51299'></div>
@@ -44,8 +81,10 @@ export default function profile() {
                         <div class='e2532_51443'>
                             <div class='e2532_51444'><span class='e2532_51446'>Taco DAO</span></div>
                             <div class='e2532_51458'>
-                                <span class='e2532_51459'>DID:  did:3:kjzl6cwe1jw1497oabwxdz3jyrlmdi7p6l9r1a4vgfzcf6ygxls08h7ryjx1vjy</span>
-                                <span class='e2532_514590000'>DID:  did:3:kjzl6cwe1jw146bdx9ijakbmlg0mu5k6q673uhvrx5czy81mfj2wdxeqj3l8i7a</span>
+                                { (issuers)?
+                                  renderIssuers(issuers):
+                                  <div>Loading...</div>
+                                }
                             </div>
                         </div>
                     </div>

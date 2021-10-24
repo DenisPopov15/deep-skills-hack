@@ -87,7 +87,7 @@ function MyApp() {
   }
 
   function renderIssuers() {
-    return <Issuers />
+    return <Issuers ceramic={ceramic} ethereum={ethereum} />
   }
 
   switch (urlPath) {
